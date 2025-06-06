@@ -14,7 +14,11 @@ C:\Users\neibo\Desktop\JAVA-JAVA-JAVA\src\main\java\com\fiap\alertachuva\Alertac
 C:\Users\neibo\Desktop\JAVA-JAVA-JAVA\src\main\java\com\fiap\alertachuva\entity\AreaMonitorada.java
 C:\Users\neibo\Desktop\JAVA-JAVA-JAVA\src\main\java\com\fiap\alertachuva\controller\AreaMonitoradaController.java
 C:\Users\neibo\Desktop\JAVA-JAVA-JAVA\src\main\java\com\fiap\alertachuva\entity\AppUser.java
+C:\Users\neibo\Desktop\JAVA-JAVA-JAVA\src\main\java\com\fiap\alertachuva\controller\AlertaIncendioController.java
 C:\Users\neibo\Desktop\JAVA-JAVA-JAVA\src\main\java\com\fiap\alertachuva\entity\LeituraSensor.java
 C:\Users\neibo\Desktop\JAVA-JAVA-JAVA\src\main\java\com\fiap\alertachuva\security\AuthService.java
+C:\Users\neibo\Desktop\JAVA-JAVA-JAVA\src\main\java\com\fiap\alertachuva\controller\EquipeRespostaController.java
+C:\Users\neibo\Desktop\JAVA-JAVA-JAVA\src\main\java\com\fiap\alertachuva\controller\LeituraSensorController.java
 C:\Users\neibo\Desktop\JAVA-JAVA-JAVA\src\main\java\com\fiap\alertachuva\config\OpenApiConfig.java
+C:\Users\neibo\Desktop\JAVA-JAVA-JAVA\src\main\java\com\fiap\alertachuva\controller\SensorController.java
 C:\Users\neibo\Desktop\JAVA-JAVA-JAVA\src\main\java\com\fiap\alertachuva\security\SecurityConfig.java
