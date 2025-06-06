@@ -1,0 +1,33 @@
+services:
+  app-java:
+    build: .
+    container_name: alertachuva_app
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_USER=system
+      - DB_PASS=OracleP@ss123
+      - JWT_SECRET=QGa4UPYXB2O3uoFqCmRJ2nFU/Z37AuS263XI0TPZFRo= # <<< SUA NOVA CHAVE AQUI!
+    depends_on:
+      oracle-db:
+        condition: service_healthy
+
+  oracle-db:
+    image: gvenzl/oracle-xe:latest
+    container_name: oracle_db
+    ports:
+      - "1521:1521"
+    environment:
+      - ORACLE_PASSWORD=OracleP@ss123
+      - ORACLE_SERVICE_NAME=XE
+    volumes:
+      - oracle-data:/container-data
+    healthcheck:
+      test: ["CMD-SHELL", "echo 'select 1 from dual;' | sqlplus -S system/OracleP@ss123@//localhost:1521/XE"]
+      interval: 30s
+      timeout: 15s
+      retries: 15
+      start_period: 8m # Mantenha 8m, ou tente 10m/12m se a conexão ainda for instável.
+
+volumes:
+  oracle-data:
