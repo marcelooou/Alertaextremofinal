@@ -41,6 +41,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./src/main/docker/Dockerfile
+          file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/alertachuva-api:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/alertaextremofinal:latest
