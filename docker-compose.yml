@@ -7,7 +7,7 @@ services:
     environment:
       - DB_USER=system
       - DB_PASS=OracleP@ss123
-      - JWT_SECRET=QGa4UPYXB2O3uoFqCmRJ2nFU/Z37AuS263XI0TPZFRo= # <<< SUA NOVA CHAVE AQUI!
+      - JWT_SECRET=QGa4UPYXB2O3uoFqCmRJ2nFU/Z37AuS263XI0TPZFRo= 
     depends_on:
       oracle-db:
         condition: service_healthy
@@ -27,7 +27,7 @@ services:
       interval: 30s
       timeout: 15s
       retries: 15
-      start_period: 8m # Mantenha 8m, ou tente 10m/12m se a conexão ainda for instável.
+      start_period: 8m 
 
 volumes:
   oracle-data:

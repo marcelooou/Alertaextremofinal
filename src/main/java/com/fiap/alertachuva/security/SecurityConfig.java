@@ -18,33 +18,29 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import java.util.Arrays;
 
-import com.fiap.alertachuva.security.JwtFilter; // Certifique-se que o caminho está correto
+import com.fiap.alertachuva.security.JwtFilter;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
     @Autowired
-    private JwtFilter jwtFilter; // Injeção do JwtFilter
+    private JwtFilter jwtFilter;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
-                .csrf(csrf -> csrf.disable()) // Desabilita CSRF completamente (geralmente ok para APIs)
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // Sessão stateless para JWT
+                .csrf(csrf -> csrf.disable())
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
-                        // Permite acesso público para as rotas de autenticação e Swagger
                         .requestMatchers("/auth/**", "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
-                        // Para qualquer outra requisição, exige autenticação
                         .anyRequest().authenticated()
                 )
-                // Adiciona a configuração de CORS e o filtro JWT na ordem correta
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
-                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class) // Adiciona o JwtFilter antes do filtro de autenticação de usuário/senha
+                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
 
-    // Beans essenciais (MANTENHA ESTES!)
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();

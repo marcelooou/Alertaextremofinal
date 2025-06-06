@@ -3,24 +3,24 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-      - main # OU 'master', dependendo do nome da sua branch principal
+      - main
 
 jobs:
   build-and-push:
-    runs-on: ubuntu-latest # O ambiente onde o pipeline vai rodar
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code # Passo 1: Clona o seu repositório
+      - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Set up JDK 17 # Passo 2: Configura o Java 17
+      - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
-          cache: maven # Otimiza o download de dependências Maven
+          cache: maven
 
-      - name: Cache Maven dependencies # Passo 3: Cache de dependências Maven para builds mais rápidas
+      - name: Cache Maven dependencies
         uses: actions/cache@v4
         with:
           path: ~/.m2/repository
@@ -28,21 +28,19 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
-      - name: Build with Maven # Passo 4: Compila o projeto Spring Boot e gera o JAR
-        run: mvn clean install -DskipTests # -DskipTests pula os testes unitários no pipeline para agilizar
+      - name: Build with Maven
+        run: mvn clean install -DskipTests
 
-      - name: Login to Docker Hub # Passo 5: Faz login no Docker Hub
+      - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKER_USERNAME }} # Nome de usuário do Docker Hub (configurado como segredo)
-          password: ${{ secrets.DOCKER_PASSWORD }} # Senha do Docker Hub (configurado como segredo)
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build and Push Docker Image # Passo 6: Constrói a imagem Docker e envia para o Docker Hub
+      - name: Build and Push Docker Image
         uses: docker/build-push-action@v5
         with:
-          context: . # O contexto é a pasta raiz do seu projeto
-          file: ./src/main/docker/Dockerfile # Caminho para o seu Dockerfile
-          push: true # Habilita o push para o Docker Hub
-          tags: ${{ secrets.DOCKER_USERNAME }}/alertachuva-api:latest # Tag da imagem (seu_usuario/nome_da_imagem:latest)
-          # SUBSTITUA 'alertachuva-api' pelo nome do seu projeto, se for diferente
-          # E 'latest' pode ser substituído por uma tag mais específica, como 'v1.0.0' ou ${{ github.sha }}
+          context: .
+          file: ./src/main/docker/Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKER_USERNAME }}/alertachuva-api:latest
