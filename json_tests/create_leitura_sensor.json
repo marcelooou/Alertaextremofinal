@@ -1,0 +1,8 @@
+{
+    "timestampLeitura": "2025-06-08T10:00:00",
+    "tipoMedicao": "Temperatura",
+    "valorMedicao": 25.5,
+    "sensor": {
+        "id": 1
+    }
+}

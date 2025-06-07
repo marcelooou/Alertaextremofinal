@@ -1,0 +1,9 @@
+{
+    "tipoSensor": "Temperatura",
+    "latitude": -10.2,
+    "longitude": -50.2,
+    "status": "Ativo",
+    "area": {
+        "id": 1
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "id": 1,
+    "tipoSensor": "Umidade",
+    "latitude": -10.3,
+    "longitude": -50.3,
+    "status": "Inativo",
+    "area": {
+        "id": 1
+    }
+}

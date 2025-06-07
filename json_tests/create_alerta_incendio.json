@@ -1,0 +1,10 @@
+{
+    "nivelSeveridade": "ALTO",
+    "statusAlerta": "EM_ANDAMENTO",
+    "leituraGatilho": {
+        "id": 1
+    },
+    "equipeDesignada": {
+        "id": 1
+    }
+}
