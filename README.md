@@ -1,12 +1,12 @@
-# 🌧️🔥 ALERTA CHUVA API - Monitoramento de Eventos Extremos (FIAP Global Solution) 🚨
+# 🔥🌲 ALERTA INCÊNDIO FLORESTAL API - Monitoramento de Eventos Extremos (FIAP Global Solution) 🚨
 
-Bem-vindo(a) ao repositório da API "Alerta Chuva"! Este projeto é uma API RESTful desenvolvida em Spring Boot para gerenciar e responder a eventos climáticos extremos.
+Bem-vindo(a) ao repositório da API "Alerta Incêndio Florestal"! Este projeto é uma API RESTful desenvolvida em Spring Boot para gerenciar e responder a **eventos extremos, com foco em incêndios florestais**, visando a prevenção, detecção e resposta rápida a focos de fogo.
 
 ---
 
 ## 🚀 Sobre o Projeto
 
-A API gerencia dados de áreas monitoradas, sensores, leituras, alertas de incêndio e equipes de resposta. Implementa segurança JWT e é conteinerizada com Docker e Docker Compose, seguindo práticas de infraestrutura como código.
+A API gerencia dados de áreas monitoradas, sensores, leituras, **alertas de incêndio** e equipes de resposta. Implementa segurança JWT e é conteinerizada com Docker e Docker Compose, seguindo práticas de infraestrutura como código.
 
 ---
 
@@ -37,8 +37,8 @@ Sua API estará disponível em `http://localhost:8080`.
 
 1.  **Clone o Repositório:**
     ```bash
-    git clone [https://github.com/marcelooou/FinalALERTAFINALMENTE.git](https://github.com/marcelooou/FinalALERTAFINALMENTE.git)
-    cd FinalALERTAFINALMENTE
+    git clone [https://github.com/marcelooou/Alertaextremofinal.git](https://github.com/marcelooou/Alertaextremofinal.git)
+    cd Alertaextremofinal
     ```
 2.  **Gere e Configure a Chave Secreta JWT:**
     * Execute no terminal para gerar a chave:
@@ -46,7 +46,7 @@ Sua API estará disponível em `http://localhost:8080`.
         mvn compile exec:java -Dexec.mainClass="io.jsonwebtoken.security.Keys" -Dexec.args="HS256" -q
         ```
     * **COPIE A CHAVE INTEIRA.**
-    * No `docker-compose.yml`, na seção `app-java`, cole a chave em `JWT_SECRET`.
+    * No `docker-compose.yml`, na seção `app-java`, cole a chave copiada em `JWT_SECRET`.
 3.  **Suba o Ambiente Docker:**
     * No terminal:
         ```bash
